@@ -16,7 +16,7 @@ export {
 } from '@uniswap/analytics'
 
 const allowAnalyticsAtomKey = 'allow_analytics'
-export const allowAnalyticsAtom = atomWithStorage<boolean>(allowAnalyticsAtomKey, true)
+export const allowAnalyticsAtom = atomWithStorage<boolean>(allowAnalyticsAtomKey, false)
 
 export const Trace = memo((props: React.ComponentProps<typeof AnalyticsTrace>) => {
   const allowAnalytics = useAtomValue(allowAnalyticsAtom)

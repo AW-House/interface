@@ -253,6 +253,17 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_81457,
   },
+  [ChainId.REDSTONE_GARNET]: {
+    networkType: NetworkType.L2,
+    bridge: '',
+    defaultListUrl: '',
+    docs: '',
+    explorer: '',
+    infoLink: '',
+    label: 'Redstone Garnet',
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    color: darkTheme.chain_10,
+  },
 } as const
 
 export function getChainInfo(

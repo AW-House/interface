@@ -95,6 +95,12 @@ export function getChainUI(chainId: ChainId, darkMode: boolean): ChainUI | undef
             bgColor: 'rgba(252, 252, 3, 0.16)',
             textColor: 'rgba(17, 20, 12, 1)',
           }
+    case ChainId.REDSTONE_GARNET:
+      return {
+        Symbol: optimism,
+        bgColor: '#FF042033',
+        textColor: '#FF0420',
+      }
     default:
       return undefined
   }

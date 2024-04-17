@@ -13,6 +13,7 @@
     "husky": "^8.0.3",
     "i18next": "23.10.0",
     "i18next-parser": "8.6.0",
+    "patch-package": "8.0.0",
     "syncpack": "^8.5.14",
     "turbo": "1.10.16",
     "turbo-ignore": "^1.11.3"
@@ -110,7 +111,7 @@
     "lfg": "yarn g:prepare && yarn mobile env:local:download && yarn stretch env:local:download && yarn g:build && yarn mobile pod && yarn mobile ios",
     "mobile": "yarn workspace @uniswap/mobile",
     "local:check": "./scripts/local-version-check.sh",
-    "postinstall": "husky install && yarn g:prepare",
+    "postinstall": "husky install && yarn g:prepare && patch-package",
     "stretch": "yarn workspace @uniswap/stretch",
     "ui:build:icons": "yarn workspace ui build:icons",
     "upgrade:tamagui": "yarn up '*tamagui*' '@tamagui/*'",
@@ -124,5 +125,8 @@
     "apps/*",
     "packages/*",
     "config/*"
-  ]
+  ],
+  "devDependencies": {
+    "@types/chrome": "0.0.266"
+  }
 }

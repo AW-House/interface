@@ -17,6 +17,13 @@ import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import { isDevelopmentEnv, isStagingEnv } from 'utils/env'
 
+//TODO: initiate global fork config
+const MODAL_CONFIG = {
+  showBanner: false,
+  showFiatModal: false,
+  showPrivacyModal: false,
+}
+
 export default function TopLevelModals() {
   const addressClaimOpen = useModalIsOpen(ApplicationModal.ADDRESS_CLAIM)
   const addressClaimToggle = useToggleModal(ApplicationModal.ADDRESS_CLAIM)
@@ -33,14 +40,14 @@ export default function TopLevelModals() {
       <Bag />
       <UniwalletModal />
 
-      <Banners />
+      {MODAL_CONFIG.showBanner && <Banners />}
 
       <OffchainActivityModal />
       <TransactionCompleteModal />
-      <FiatOnrampModal />
+      {MODAL_CONFIG.showFiatModal && <FiatOnrampModal />}
       <UkDisclaimerModal />
       <GetTheAppModal />
-      <PrivacyPolicyModal />
+      {MODAL_CONFIG.showPrivacyModal && <PrivacyPolicyModal />}
       <FeatureFlagModal />
       {shouldShowDevFlags && <DevFlagsBox />}
     </>
