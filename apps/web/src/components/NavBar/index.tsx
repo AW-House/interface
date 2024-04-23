@@ -17,6 +17,7 @@ import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-do
 import styled from 'styled-components'
 
 import { useAccountDrawer } from 'components/AccountDrawer/MiniPortfolio/hooks'
+import forkConfig from 'fork-config'
 import { Z_INDEX } from 'theme/zIndex'
 import { Chain } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import { useIsNavSearchInputVisible } from '../../nft/hooks/useIsNavSearchInputVisible'
@@ -71,12 +72,19 @@ export const PageTabs = () => {
       <MenuItem href="/swap" isActive={pathname.startsWith('/swap')}>
         <Trans>Swap</Trans>
       </MenuItem>
-      <MenuItem
-        href={'/explore' + (chainName !== Chain.Ethereum ? `/${chainName.toLowerCase()}` : '')}
-        isActive={pathname.startsWith('/explore')}
-      >
-        <Trans>Explore</Trans>
-      </MenuItem>
+      {forkConfig.analytics.internalExplore ? (
+        <MenuItem
+          href={'/explore' + (chainName !== Chain.Ethereum ? `/${chainName.toLowerCase()}` : '')}
+          isActive={pathname.startsWith('/explore')}
+        >
+          <Trans>Explore</Trans>
+        </MenuItem>
+      ) : (
+        //TODO: update with external info link
+        <MenuItem href="https://info.example.com">
+          <Trans>Explore</Trans>
+        </MenuItem>
+      )}
       {!shouldDisableNFTRoutes && (
         <MenuItem dataTestId="nft-nav" href="/nfts" isActive={isNftPage}>
           <Trans>NFTs</Trans>
@@ -124,7 +132,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
               <UniIcon
                 width="48"
                 height="48"
-                data-testid="uniswap-logo"
+                data-testid="swap-logo"
                 className={styles.logo}
                 clickable={!account}
                 onClick={handleUniIconClick}
@@ -145,7 +153,11 @@ const Navbar = ({ blur }: { blur: boolean }) => {
               display: 'flex',
             })}
           >
-            <SearchBar />
+            {forkConfig.navbar.showSearchBar ? (
+              <SearchBar />
+            ) : (
+              <>Swap is still in development and should not be used by external users.</>
+            )}
           </Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">
@@ -158,7 +170,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
                   <ChainSelector />
                 </Box>
               )}
-              {isLandingPage && <GetTheAppButton />}
+              {isLandingPage && forkConfig.uniWalletSupported && <GetTheAppButton />}
               <Web3Status />
             </Row>
           </Box>

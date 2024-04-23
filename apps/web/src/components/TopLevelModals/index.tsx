@@ -9,6 +9,7 @@ import FiatOnrampModal from 'components/FiatOnrampModal'
 import { UkDisclaimerModal } from 'components/NavBar/UkDisclaimerModal'
 import { PrivacyPolicyModal } from 'components/PrivacyPolicy'
 import DevFlagsBox from 'dev/DevFlagsBox'
+import forkConfig from 'fork-config'
 import useAccountRiskCheck from 'hooks/useAccountRiskCheck'
 import Bag from 'nft/components/bag/Bag'
 import TransactionCompleteModal from 'nft/components/collection/TransactionCompleteModal'
@@ -16,13 +17,6 @@ import { GetTheAppModal } from 'pages/Landing/components/DownloadApp/GetTheAppMo
 import { useModalIsOpen, useToggleModal } from 'state/application/hooks'
 import { ApplicationModal } from 'state/application/reducer'
 import { isDevelopmentEnv, isStagingEnv } from 'utils/env'
-
-//TODO: initiate global fork config
-const MODAL_CONFIG = {
-  showBanner: false,
-  showFiatModal: false,
-  showPrivacyModal: false,
-}
 
 export default function TopLevelModals() {
   const addressClaimOpen = useModalIsOpen(ApplicationModal.ADDRESS_CLAIM)
@@ -40,14 +34,14 @@ export default function TopLevelModals() {
       <Bag />
       <UniwalletModal />
 
-      {MODAL_CONFIG.showBanner && <Banners />}
+      {forkConfig.modal.showBanner && <Banners />}
 
       <OffchainActivityModal />
       <TransactionCompleteModal />
-      {MODAL_CONFIG.showFiatModal && <FiatOnrampModal />}
+      {forkConfig.modal.showFiatModal && <FiatOnrampModal />}
       <UkDisclaimerModal />
       <GetTheAppModal />
-      {MODAL_CONFIG.showPrivacyModal && <PrivacyPolicyModal />}
+      {forkConfig.modal.showPrivacyModal && <PrivacyPolicyModal />}
       <FeatureFlagModal />
       {shouldShowDevFlags && <DevFlagsBox />}
     </>

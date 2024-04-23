@@ -23,6 +23,9 @@ export function GitVersionRow() {
           {' ' + process.env.REACT_APP_GIT_COMMIT_HASH.substring(0, 6)}
         </ThemedText.BodySmall>
       </Tooltip>
+      <ThemedText.BodySmall color="neutral3">
+        Swap on Redstone is a fork based on Uniswap V3 Protocol.
+      </ThemedText.BodySmall>
     </Container>
   ) : null
 }

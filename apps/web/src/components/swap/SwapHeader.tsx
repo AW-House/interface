@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { isIFramed } from 'utils/isIFramed'
 
 import { sendAnalyticsEvent } from 'analytics'
+import forkConfig from 'fork-config'
 import { useCallback, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { FeatureFlags } from 'uniswap/src/features/experiments/flags'
@@ -105,7 +106,7 @@ export default function SwapHeader({ compact, syncTabToUrl }: { compact: boolean
             <Trans>Send</Trans>
           </SwapHeaderTabButton>
         )}
-        <SwapBuyFiatButton />
+        {forkConfig.swapHeader.buy && <SwapBuyFiatButton />}
       </HeaderButtonContainer>
       {currentTab === SwapTab.Swap && (
         <RowFixed>

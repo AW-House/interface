@@ -186,7 +186,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] = initializeConnector<Coinba
       actions,
       options: {
         url: APP_RPC_URLS[ChainId.MAINNET][0],
-        appName: 'Uniswap',
+        appName: 'Swap on Redstone',
         appLogoUrl: UNISWAP_LOGO,
         reloadOnDisconnect: false,
       },
@@ -212,10 +212,10 @@ const coinbaseWalletConnection: Connection = {
 
 export const connections = [
   gnosisSafeConnection,
-  uniwalletWCV2ConnectConnection,
+  // uniwalletWCV2ConnectConnection,
   deprecatedInjectedConnection,
   walletConnectV2Connection,
-  coinbaseWalletConnection,
+  // coinbaseWalletConnection,
   eip6963Connection,
   // network connector should be last in the list, as it should be the fallback if no other connector is active
   networkConnection,

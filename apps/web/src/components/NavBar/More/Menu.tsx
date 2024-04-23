@@ -11,8 +11,9 @@ import styled, { css } from 'styled-components'
 import { BREAKPOINTS } from 'theme'
 import { ExternalLink, ThemedText } from 'theme/components'
 
-import { MenuItem, MenuSection, useMenuContent } from './menuContent'
+import forkConfig from 'fork-config'
 import { MobileAppLogo } from './MobileAppLogo'
+import { MenuItem, MenuSection, useMenuContent } from './menuContent'
 
 const Container = styled.div`
   width: 295px;
@@ -113,25 +114,28 @@ export function Menu({ close }: { close: () => void }) {
           />
         ))}
         <Separator />
-        <StyledRow
-          height="45px"
-          gap="md"
-          onClick={() => {
-            close()
-            openGetTheAppModal()
-          }}
-        >
-          <MobileAppLogo />
-          <Column gap="xs">
-            <Text lineHeight="20px">
-              <Trans>Download Uniswap</Trans>
-            </Text>
-            <ThemedText.LabelSmall lineHeight="18px">
-              <Trans>Available on iOS and Android</Trans>
-            </ThemedText.LabelSmall>
-          </Column>
-        </StyledRow>
-        <StyledSocials iconSize="25px" />
+        {forkConfig.uniWalletSupported && (
+          <StyledRow
+            height="45px"
+            gap="md"
+            onClick={() => {
+              close()
+              openGetTheAppModal()
+            }}
+          >
+            <MobileAppLogo />
+            <Column gap="xs">
+              <Text lineHeight="20px">
+                <Trans>Download Uniswap</Trans>
+              </Text>
+              <ThemedText.LabelSmall lineHeight="18px">
+                <Trans>Available on iOS and Android</Trans>
+              </ThemedText.LabelSmall>
+            </Column>
+          </StyledRow>
+        )}
+        <Text lineHeight="20px">Swap on Redstone is a fork based on Uniswap V3 Protocol</Text>
+        {forkConfig.settings.socials && <StyledSocials iconSize="25px" />}
       </Column>
     </Container>
   )

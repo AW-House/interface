@@ -1,3 +1,4 @@
+import forkConfig from 'fork-config'
 import { Trans } from 'i18n'
 import styled from 'styled-components'
 import { ExternalLink, ThemedText } from 'theme/components'
@@ -8,7 +9,11 @@ const StyledLink = styled(ExternalLink)`
 `
 
 export default function PrivacyPolicyNotice() {
-  return (
+  return forkConfig.settings.privacyPolicyPending ? (
+    <ThemedText.BodySmall color="neutral2">
+      Swap on Redstone is a fork based on Uniswap V3 Protocol.
+    </ThemedText.BodySmall>
+  ) : (
     <ThemedText.BodySmall color="neutral2">
       <Trans>By connecting a wallet, you agree to Uniswap Labs&apos;</Trans>{' '}
       <StyledLink href="https://uniswap.org/terms-of-service/">

@@ -12,6 +12,7 @@ import Row, { AutoRow } from 'components/Row'
 import { DeltaArrow } from 'components/Tokens/TokenDetails/Delta'
 import { LoadingBubble } from 'components/Tokens/loading'
 import { getConnection } from 'connection'
+import forkConfig from 'fork-config'
 import { useTokenBalancesQuery } from 'graphql/data/apollo/TokenBalancesProvider'
 import { useDisableNFTRoutes } from 'hooks/useDisableNFTRoutes'
 import useENSName from 'hooks/useENSName'
@@ -193,7 +194,7 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
         </IconContainer>
       </HeaderWrapper>
       <PortfolioDrawerContainer>
-        {totalBalance !== undefined ? (
+        {totalBalance !== undefined && forkConfig.graphqlAPISupported ? (
           <FadeInColumn gap="xs">
             <ThemedText.HeadlineLarge fontWeight={535} data-testid="portfolio-total-balance">
               {formatNumber({
@@ -216,13 +217,15 @@ export default function AuthenticatedHeader({ account, openSettings }: { account
             </AutoRow>
           </FadeInColumn>
         ) : (
-          <Column gap="xs">
-            <LoadingBubble height="44px" width="170px" />
-            <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" />
-          </Column>
+          forkConfig.graphqlAPISupported && (
+            <Column gap="xs">
+              <LoadingBubble height="44px" width="170px" />
+              <LoadingBubble height="16px" width="100px" margin="4px 0 20px 0" />
+            </Column>
+          )
         )}
         <Row gap="8px" marginBottom={!fiatOnrampAvailable && fiatOnrampAvailabilityChecked ? '20px' : '0px'}>
-          {shouldShowBuyFiatButton && (
+          {shouldShowBuyFiatButton && forkConfig.swapHeader.buy && (
             <ActionTile
               dataTestId="wallet-buy-crypto"
               Icon={<CreditCardIcon />}

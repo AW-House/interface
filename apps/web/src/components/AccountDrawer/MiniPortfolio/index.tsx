@@ -11,6 +11,7 @@ import styled, { useTheme } from 'styled-components'
 import { BREAKPOINTS } from 'theme'
 import { ThemedText } from 'theme/components'
 
+import forkConfig from 'fork-config'
 import { atom, useAtom } from 'jotai'
 import { ActivityTab } from './Activity'
 import { usePendingActivity } from './Activity/hooks'
@@ -71,32 +72,41 @@ interface Page {
   loggingElementName: string
 }
 
-const Pages: Array<Page> = [
-  {
-    title: <Trans>Tokens</Trans>,
-    key: 'tokens',
-    component: Tokens,
-    loggingElementName: InterfaceElementName.MINI_PORTFOLIO_TOKENS_TAB,
-  },
-  {
-    title: <Trans>NFTs</Trans>,
-    key: 'nfts',
-    component: NFTs,
-    loggingElementName: InterfaceElementName.MINI_PORTFOLIO_NFT_TAB,
-  },
-  {
-    title: <Trans>Pools</Trans>,
-    key: 'pools',
-    component: Pools,
-    loggingElementName: InterfaceElementName.MINI_PORTFOLIO_POOLS_TAB,
-  },
-  {
-    title: <Trans>Activity</Trans>,
-    key: 'activity',
-    component: ActivityTab,
-    loggingElementName: InterfaceElementName.MINI_PORTFOLIO_ACTIVITY_TAB,
-  },
-]
+const Pages: Array<Page> = !forkConfig.graphqlAPISupported
+  ? [
+      {
+        title: <Trans>Activity</Trans>,
+        key: 'activity',
+        component: ActivityTab,
+        loggingElementName: InterfaceElementName.MINI_PORTFOLIO_ACTIVITY_TAB,
+      },
+    ]
+  : [
+      {
+        title: <Trans>Tokens</Trans>,
+        key: 'tokens',
+        component: Tokens,
+        loggingElementName: InterfaceElementName.MINI_PORTFOLIO_TOKENS_TAB,
+      },
+      {
+        title: <Trans>NFTs</Trans>,
+        key: 'nfts',
+        component: NFTs,
+        loggingElementName: InterfaceElementName.MINI_PORTFOLIO_NFT_TAB,
+      },
+      {
+        title: <Trans>Pools</Trans>,
+        key: 'pools',
+        component: Pools,
+        loggingElementName: InterfaceElementName.MINI_PORTFOLIO_POOLS_TAB,
+      },
+      {
+        title: <Trans>Activity</Trans>,
+        key: 'activity',
+        component: ActivityTab,
+        loggingElementName: InterfaceElementName.MINI_PORTFOLIO_ACTIVITY_TAB,
+      },
+    ]
 
 export default function MiniPortfolio({ account }: { account: string }) {
   const theme = useTheme()

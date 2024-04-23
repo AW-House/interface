@@ -3,7 +3,15 @@ import ms from 'ms'
 import { darkTheme } from 'theme/colors'
 
 import { SupportedL1ChainId, SupportedL2ChainId } from './chains'
-import { ARBITRUM_LIST, AVALANCHE_LIST, BASE_LIST, CELO_LIST, OPTIMISM_LIST, PLASMA_BNB_LIST } from './lists'
+import {
+  ARBITRUM_LIST,
+  AVALANCHE_LIST,
+  BASE_LIST,
+  CELO_LIST,
+  OPTIMISM_LIST,
+  PLASMA_BNB_LIST,
+  REDSTONE_LIST,
+} from './lists'
 
 export const AVERAGE_L1_BLOCK_TIME = ms(`12s`)
 export const DEFAULT_MS_BEFORE_WARNING = ms(`10m`)
@@ -255,11 +263,11 @@ const CHAIN_INFO: ChainInfoMap = {
   },
   [ChainId.REDSTONE_GARNET]: {
     networkType: NetworkType.L2,
-    bridge: '',
-    defaultListUrl: '',
-    docs: '',
-    explorer: '',
-    infoLink: '',
+    bridge: 'https://redstone.xyz/deposit',
+    defaultListUrl: REDSTONE_LIST,
+    docs: 'https://redstone.xyz/docs/',
+    explorer: 'https://explorer.garnet.qry.live/',
+    infoLink: 'https://redstone.xyz/docs/',
     label: 'Redstone Garnet',
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_10,

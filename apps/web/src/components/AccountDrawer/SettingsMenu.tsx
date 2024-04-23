@@ -1,6 +1,7 @@
 import Column from 'components/Column'
 import Row from 'components/Row'
 import { LOCALE_LABEL } from 'constants/locales'
+import forkConfig from 'fork-config'
 import { useActiveLocalCurrency } from 'hooks/useActiveLocalCurrency'
 import { useActiveLocale } from 'hooks/useActiveLocale'
 import { Trans } from 'i18n'
@@ -91,12 +92,12 @@ export default function SettingsMenu({
           </SectionTitle>
           <ToggleWrapper currencyConversionEnabled={currencyConversionEnabled}>
             <ThemeToggle />
-            <SmallBalanceToggle />
-            <SpamToggle />
-            <AnalyticsToggle />
+            {forkConfig.graphqlAPISupported && <SmallBalanceToggle />}
+            {forkConfig.graphqlAPISupported && <SpamToggle />}
+            {forkConfig.analytics.allowAnalytics && <AnalyticsToggle />}
             <TestnetsToggle />
           </ToggleWrapper>
-          {!currencyConversionEnabled && (
+          {!currencyConversionEnabled && forkConfig.settings.multipleLanguages && (
             <>
               <SectionTitle data-testid="wallet-header">
                 <Trans>Language</Trans>
@@ -107,12 +108,14 @@ export default function SettingsMenu({
 
           {currencyConversionEnabled && (
             <Column>
-              <SettingsButton
-                title={<Trans>Language</Trans>}
-                currentState={LOCALE_LABEL[activeLocale]}
-                onClick={openLanguageSettings}
-                testId="language-settings-button"
-              />
+              {forkConfig.settings.multipleLanguages && (
+                <SettingsButton
+                  title={<Trans>Language</Trans>}
+                  currentState={LOCALE_LABEL[activeLocale]}
+                  onClick={openLanguageSettings}
+                  testId="language-settings-button"
+                />
+              )}
               <SettingsButton
                 title={<Trans>Currency</Trans>}
                 currentState={activeLocalCurrency}

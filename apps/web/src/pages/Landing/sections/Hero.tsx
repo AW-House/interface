@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { ChevronDown } from 'react-feather'
 import styled, { css, keyframes } from 'styled-components'
 
+import forkConfig from 'fork-config'
 import { BREAKPOINTS } from 'theme'
 import { Text } from 'ui/src/components/text/Text'
 import { heightBreakpoints } from 'ui/src/theme'
@@ -117,7 +118,7 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
       justify="center"
       style={{ transform: `translate(0px, ${translateY}px)`, opacity: opacityY }}
     >
-      <TokenCloud transition={transition} />
+      {forkConfig.landingPage.tokenCloud && <TokenCloud transition={transition} />}
       <Center
         direction="column"
         align="center"
@@ -157,7 +158,7 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
               variant: 'body2',
             }}
           >
-            <Trans>The largest onchain marketplace. Buy and sell crypto on Ethereum and 7+ other chains.</Trans>
+            <Trans>Swap on Redstone is a fork based on Uniswap V3 Protocol</Trans>
           </Text>
         </RiseIn>
       </Center>
