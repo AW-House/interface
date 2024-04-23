@@ -4,6 +4,7 @@ const forkConfig = {
     multipleLanguages: false,
     privacyPolicyPending: true,
     socials: false,
+    currencyConversion: false,
   },
   landingPage: {
     swapOnly: true,

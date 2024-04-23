@@ -79,7 +79,7 @@ export default function SettingsMenu({
   openLanguageSettings: () => void
   openLocalCurrencySettings: () => void
 }) {
-  const currencyConversionEnabled = useFeatureFlag(FeatureFlags.CurrencyConversion)
+  const currencyConversionEnabled = useFeatureFlag(FeatureFlags.CurrencyConversion) && forkConfig.settings.currencyConversion
   const activeLocale = useActiveLocale()
   const activeLocalCurrency = useActiveLocalCurrency()
 
