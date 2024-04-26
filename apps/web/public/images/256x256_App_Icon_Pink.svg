@@ -1,39 +1,18 @@
 
-<svg width="200" height="200" viewBox="0 0 200 200" fill="none" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
-<rect width="200" height="200" fill="#F34242"/>
-<g clip-path="url(#clip0_1_376)">
-<path opacity="0.75" d="M84 84H68V68H84V84Z" fill="white"/>
-<path d="M84 100H68V84H84V100Z" fill="white"/>
-<path d="M84 116H68V100H84V116Z" fill="white"/>
-<path opacity="0.75" d="M84 132H68V116H84V132Z" fill="white"/>
-<path opacity="0.75" d="M132 84H116V68H132V84Z" fill="white"/>
-<path d="M132 100H116V84H132V100Z" fill="white"/>
-<path d="M132 116H116V100H132V116Z" fill="white"/>
-<path opacity="0.75" d="M132 132H116V116H132V132Z" fill="white"/>
-<path d="M100 132H84V116H100V132Z" fill="white"/>
-<path d="M116 132H100V116H116V132Z" fill="white"/>
-<path d="M100 84H84V68H100V84Z" fill="white"/>
-<path d="M116 84H100V68H116V84Z" fill="white"/>
-<path d="M100 36H84V52H100V36Z" fill="white" fill-opacity="0.25"/>
-<path d="M116 148H100V132H116V148Z" fill="white" fill-opacity="0.75"/>
-<path d="M148 100H132V116H148V100Z" fill="white" fill-opacity="0.75"/>
-<path d="M68 116H52V100H68V116Z" fill="white" fill-opacity="0.75"/>
-<path d="M116 52H100V68H116V52Z" fill="white" fill-opacity="0.75"/>
-<path d="M116 36H100V52H116V36Z" fill="white" fill-opacity="0.25"/>
-<path d="M100 164H84V148H100V164Z" fill="white" fill-opacity="0.25"/>
-<path d="M116 164H100V148H116V164Z" fill="white" fill-opacity="0.25"/>
-<path d="M164 84H148V100H164V84Z" fill="white" fill-opacity="0.25"/>
-<path d="M164 100H148V116H164V100Z" fill="white" fill-opacity="0.25"/>
-<path d="M52 116H36V100H52V116Z" fill="white" fill-opacity="0.25"/>
-<path d="M52 100H36V84H52V100Z" fill="white" fill-opacity="0.25"/>
-<path d="M100 52H84V68H100V52Z" fill="white" fill-opacity="0.75"/>
-<path d="M100 148H84V132H100V148Z" fill="white" fill-opacity="0.75"/>
-<path d="M148 84H132V100H148V84Z" fill="white" fill-opacity="0.75"/>
-<path d="M68 100H52V84H68V100Z" fill="white" fill-opacity="0.75"/>
+<svg width="256" height="256" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d_715_3708)">
+<path d="M4 0V44H18.6662V29.3338H33.3324V0H4ZM48 44V29.3338H33.3324V44H48Z" fill="#F34242"/>
 </g>
 <defs>
-<clipPath id="clip0_1_376">
-<rect width="128" height="128" fill="white" transform="translate(36 36)"/>
-</clipPath>
+<filter id="filter0_d_715_3708" x="0" y="0" width="52" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_715_3708"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_715_3708" result="shape"/>
+</filter>
 </defs>
 </svg>

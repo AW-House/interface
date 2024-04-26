@@ -156,7 +156,10 @@ const Navbar = ({ blur }: { blur: boolean }) => {
             {forkConfig.navbar.showSearchBar ? (
               <SearchBar />
             ) : (
-              <>Swap is still in development and should not be used by external users.</>
+              <>
+                Swap on Redstone Network is a fork based Uniswap V3 and is still in development. It should not be used
+                by external users until released.
+              </>
             )}
           </Box>
           <Box className={styles.rightSideContainer}>

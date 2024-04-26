@@ -102,6 +102,12 @@ export function getChainUI(chainId: ChainId, darkMode: boolean): ChainUI | undef
         bgColor: '#FF042033',
         textColor: '#FF0420',
       }
+    case ChainId.REDSTONE:
+      return {
+        Symbol: redstone,
+        bgColor: '#FF042033',
+        textColor: '#FF0420',
+      }
     default:
       return undefined
   }

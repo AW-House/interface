@@ -55,7 +55,6 @@
     "https://raw.githubusercontent.com",
     "https://trustwallet.com",
     "https://unpkg.com/@rive-app/canvas@2.8.3/rive.wasm",
-    "https://us-central1-uniswap-mobile.cloudfunctions.net/",
     "https://vercel.com",
     "https://vercel.live/",
     "https://*.quiknode.pro",
@@ -63,6 +62,7 @@
     "wss://relay.walletconnect.com",
     "wss://www.walletlink.org",
     "http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-garnet",
+    "http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-mainnet",
     "https://rpc.garnet.qry.live",
     "https://api.stg.swap-redstone.w3us.site"
   ],

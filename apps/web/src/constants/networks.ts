@@ -133,6 +133,7 @@ export const PUBLIC_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
     'https://blast.blockpi.network/v1/rpc/public',
   ],
   [ChainId.REDSTONE_GARNET]: ['https://rpc.garnet.qry.live/'],
+  [ChainId.REDSTONE]: ['https://rpc.redstonechain.com/'],
 }
 
 /**
@@ -156,6 +157,7 @@ export const APP_RPC_URLS: Record<SupportedInterfaceChain, string[]> = {
   [ChainId.BASE]: [`https://base-mainnet.infura.io/v3/${INFURA_KEY}`],
   [ChainId.BLAST]: [`https://blast-mainnet.infura.io/v3/${INFURA_KEY}`],
   [ChainId.REDSTONE_GARNET]: ['https://rpc.garnet.qry.live/'],
+  [ChainId.REDSTONE]: ['https://rpc.redstonechain.com/'],
 }
 
 export const INFURA_PREFIX_TO_CHAIN_ID: { [prefix: string]: ChainId } = {

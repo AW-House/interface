@@ -40,7 +40,7 @@ export default function SwapPage({ className }: { className?: string }) {
 
   const { chainId: connectedChainId } = useWeb3React()
   const supportedChainId = asSupportedChain(connectedChainId)
-  const chainId = supportedChainId || ChainId.REDSTONE_GARNET
+  const chainId = supportedChainId || ChainId.REDSTONE
 
   const parsedQs = useParsedQueryString()
   const parsedCurrencyState = useMemo(() => {

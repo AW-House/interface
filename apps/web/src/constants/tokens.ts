@@ -220,6 +220,14 @@ export const DAI_BSC = new Token(ChainId.BNB, '0x1AF3F329e8BE154074D8769D1FFa4eE
 
 export const USDB_BLAST = new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000003', 18, 'USDB', 'USDB')
 
+export const USDC_REDSTONE = new Token(
+  ChainId.REDSTONE,
+  '0x4300000000000000000000000000000000000006',
+  18,
+  'USDC.e',
+  'Bridged USDC'
+)
+
 export const USDC_AVALANCHE = new Token(
   ChainId.AVALANCHE,
   '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
@@ -346,6 +354,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   [ChainId.BLAST]: new Token(ChainId.BLAST, '0x4300000000000000000000000000000000000004', 18, 'WETH', 'Wrapped Ether'),
   [ChainId.REDSTONE_GARNET]: new Token(
     ChainId.REDSTONE_GARNET,
+    '0x4200000000000000000000000000000000000006',
+    18,
+    'WETH',
+    'Wrapped Ether'
+  ),
+  [ChainId.REDSTONE]: new Token(
+    ChainId.REDSTONE,
     '0x4200000000000000000000000000000000000006',
     18,
     'WETH',
@@ -518,6 +533,7 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.ROOTSTOCK]: [],
   [ChainId.BLAST]: [USDB_BLAST],
   [ChainId.REDSTONE_GARNET]: [],
+  [ChainId.REDSTONE]: [],
 }
 
 export function isStablecoin(currency?: Currency): boolean {

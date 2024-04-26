@@ -29,6 +29,7 @@ import {
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
   USDC_POLYGON_MUMBAI,
+  USDC_REDSTONE,
   USDT,
   USDT_ARBITRUM_ONE,
   USDT_AVALANCHE,
@@ -131,6 +132,15 @@ export const COMMON_BASES: ChainCurrencyList = {
     USDC_AVALANCHE,
     USDT_AVALANCHE,
     WETH_AVALANCHE,
+  ],
+  [ChainId.REDSTONE]: [
+    nativeOnChain(ChainId.REDSTONE),
+    USDC_REDSTONE,
+    WRAPPED_NATIVE_CURRENCY[ChainId.REDSTONE] as Token,
+  ],
+  [ChainId.REDSTONE_GARNET]: [
+    nativeOnChain(ChainId.REDSTONE_GARNET),
+    WRAPPED_NATIVE_CURRENCY[ChainId.REDSTONE_GARNET] as Token,
   ],
 }
 

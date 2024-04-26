@@ -31,4 +31,5 @@ export const RPC_PROVIDERS = {
   [ChainId.BASE]: getAppProvider(ChainId.BASE),
   [ChainId.BLAST]: getAppProvider(ChainId.BLAST),
   [ChainId.REDSTONE_GARNET]: getAppProvider(ChainId.REDSTONE_GARNET),
+  [ChainId.REDSTONE]: getAppProvider(ChainId.REDSTONE),
 } satisfies Record<SupportedInterfaceChain, AppJsonRpcProvider>

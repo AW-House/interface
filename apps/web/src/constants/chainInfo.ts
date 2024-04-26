@@ -272,6 +272,17 @@ const CHAIN_INFO: ChainInfoMap = {
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
     color: darkTheme.chain_10,
   },
+  [ChainId.REDSTONE]: {
+    networkType: NetworkType.L2,
+    bridge: 'https://redstone.xyz/deposit',
+    defaultListUrl: REDSTONE_LIST,
+    docs: 'https://redstone.xyz/docs/',
+    explorer: 'https://redstone.blockscout.com/',
+    infoLink: 'https://redstone.xyz/docs/',
+    label: 'Redstone',
+    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    color: darkTheme.chain_10,
+  },
 } as const
 
 export function getChainInfo(

@@ -15,6 +15,7 @@ const CHAIN_SUBGRAPH_URL: Record<number, string> = {
   [ChainId.BLAST]:
     'https://gateway-arbitrum.network.thegraph.com/api/0ae45f0bf40ae2e73119b44ccd755967/subgraphs/id/2LHovKznvo8YmKC9ZprPjsYAZDCc4K5q4AYz8s3cnQn1',
   [ChainId.REDSTONE_GARNET]: 'http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-garnet',
+  [ChainId.REDSTONE]: 'http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-mainnet',
 }
 
 const httpLink = new HttpLink({ uri: CHAIN_SUBGRAPH_URL[ChainId.MAINNET] })
@@ -69,5 +70,9 @@ export const chainToApolloClient: Record<number, ApolloClient<NormalizedCacheObj
   [ChainId.REDSTONE_GARNET]: new ApolloClient({
     cache: new InMemoryCache(),
     uri: CHAIN_SUBGRAPH_URL[ChainId.REDSTONE_GARNET],
+  }),
+  [ChainId.REDSTONE]: new ApolloClient({
+    cache: new InMemoryCache(),
+    uri: CHAIN_SUBGRAPH_URL[ChainId.REDSTONE],
   }),
 }
