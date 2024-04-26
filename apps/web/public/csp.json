@@ -61,9 +61,9 @@
     "https://*.infura.io",
     "wss://relay.walletconnect.com",
     "wss://www.walletlink.org",
-    "http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-garnet",
-    "http://stg.swap-redstone.w3us.site:8000/subgraphs/name/swap-v3-redstone-mainnet",
+    "https://graph.stg.swap-redstone.w3us.site",
     "https://rpc.garnet.qry.live",
+    "https://rpc.redstonechain.com/",
     "https://api.stg.swap-redstone.w3us.site"
   ],
   "workerSrc": [
