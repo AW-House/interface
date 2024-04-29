@@ -266,7 +266,7 @@ const CHAIN_INFO: ChainInfoMap = {
     bridge: 'https://redstone.xyz/deposit',
     defaultListUrl: REDSTONE_LIST,
     docs: 'https://redstone.xyz/docs/',
-    explorer: 'https://explorer.garnet.qry.live/',
+    explorer: 'https://garnet.blockscout.com/',
     infoLink: 'https://redstone.xyz/docs/',
     label: 'Redstone Garnet',
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },

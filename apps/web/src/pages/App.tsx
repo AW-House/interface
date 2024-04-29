@@ -24,6 +24,7 @@ import { MICROSITE_LINK } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
 
+import forkConfig from 'fork-config'
 import { findRouteByPath, RouteDefinition, routes, useRouterConfig } from './RouteDefinitions'
 
 // The Chrome is always loaded, but is lazy-loaded because it is not needed without user interaction.
@@ -260,11 +261,13 @@ function UserPropertyUpdater() {
     }
 
     const pageLoadProperties = { service_worker: serviceWorkerProperty, cache }
-    sendInitializationEvent(SharedEventName.APP_LOADED, pageLoadProperties)
+    if (forkConfig.analytics.allowAnalytics) sendInitializationEvent(SharedEventName.APP_LOADED, pageLoadProperties)
     const sendWebVital =
       (metric: string) =>
-      ({ delta }: Metric) =>
-        sendAnalyticsEvent(SharedEventName.WEB_VITALS, { ...pageLoadProperties, [metric]: delta })
+      ({ delta }: Metric) => {
+        if (forkConfig.analytics.allowAnalytics)
+          sendAnalyticsEvent(SharedEventName.WEB_VITALS, { ...pageLoadProperties, [metric]: delta })
+      }
     getCLS(sendWebVital('cumulative_layout_shift'))
     getFCP(sendWebVital('first_contentful_paint_ms'))
     getFID(sendWebVital('first_input_delay_ms'))
