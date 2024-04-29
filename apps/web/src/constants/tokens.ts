@@ -540,8 +540,8 @@ const STABLECOINS: { [chainId in ChainId]: Token[] } = {
   [ChainId.ZORA]: [],
   [ChainId.ROOTSTOCK]: [],
   [ChainId.BLAST]: [USDB_BLAST],
-  [ChainId.REDSTONE_GARNET]: [],
-  [ChainId.REDSTONE]: [],
+  [ChainId.REDSTONE_GARNET]: [USDC_REDSTONE_GARNET],
+  [ChainId.REDSTONE]: [USDC_REDSTONE],
 }
 
 export function isStablecoin(currency?: Currency): boolean {

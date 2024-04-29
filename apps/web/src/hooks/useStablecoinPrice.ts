@@ -20,6 +20,8 @@ import {
   USDC_OPTIMISM_GOERLI,
   USDC_POLYGON,
   USDC_POLYGON_MUMBAI,
+  USDC_REDSTONE,
+  USDC_REDSTONE_GARNET,
   USDC_SEPOLIA,
   USDT_BSC,
 } from '../constants/tokens'
@@ -42,9 +44,8 @@ export const STABLECOIN_AMOUNT_OUT: { [key in SupportedInterfaceChain]: Currency
   [ChainId.POLYGON_MUMBAI]: CurrencyAmount.fromRawAmount(USDC_POLYGON_MUMBAI, 10_000e6),
   [ChainId.CELO_ALFAJORES]: CurrencyAmount.fromRawAmount(CUSD_CELO_ALFAJORES, 10_000e6),
   [ChainId.BLAST]: CurrencyAmount.fromRawAmount(USDB_BLAST, 10_000e18),
-  // TODO: change when deployed
-  [ChainId.REDSTONE_GARNET]: CurrencyAmount.fromRawAmount(USDC_MAINNET, 10_000e18),
-  [ChainId.REDSTONE]: CurrencyAmount.fromRawAmount(USDC_MAINNET, 10_000e18),
+  [ChainId.REDSTONE_GARNET]: CurrencyAmount.fromRawAmount(USDC_REDSTONE_GARNET, 10_000e18),
+  [ChainId.REDSTONE]: CurrencyAmount.fromRawAmount(USDC_REDSTONE, 10_000e18),
 }
 
 /**
