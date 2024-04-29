@@ -17,7 +17,7 @@ const BA_LIST = 'https://raw.githubusercontent.com/The-Blockchain-Association/se
 // const KLEROS_LIST = 't2crtokens.eth'
 // const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 // const WRAPPED_LIST = 'wrapped.tokensoft.eth'
-export const REDSTONE_LIST = 'https://cloudflare-ipfs.com/ipfs/QmdHJ7GC6H5QXGLPDrPgouxUaHA45j3N6qTiLqwPUVv1yt'
+export const REDSTONE_LIST = 'https://cloudflare-ipfs.com/ipfs/QmWhPZF5epsYqJJUqv5TS5tUKXC6jSqGtpSkRnDJNuGYXm'
 
 export const OPTIMISM_LIST = 'https://static.optimism.io/optimism.tokenlist.json'
 export const ARBITRUM_LIST = 'https://bridge.arbitrum.io/token-list-42161.json'

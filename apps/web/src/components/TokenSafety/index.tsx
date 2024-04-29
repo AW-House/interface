@@ -11,6 +11,7 @@ import {
   TOKEN_SAFETY_ARTICLE,
   Warning,
 } from 'constants/tokenSafety'
+import forkConfig from 'fork-config'
 import { useToken } from 'hooks/Tokens'
 import { Trans } from 'i18n'
 import { ExternalLink as LinkIconFeather } from 'react-feather'
@@ -272,7 +273,7 @@ export default function TokenSafety({
         )}
         <ShortColumn>
           <InfoText>
-            {heading} {description} {learnMoreUrl}
+            {heading} {description} {!forkConfig.settings.privacyPolicyPending && learnMoreUrl}
           </InfoText>
         </ShortColumn>
         <LinkColumn>{urls}</LinkColumn>
