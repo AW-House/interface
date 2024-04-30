@@ -3,6 +3,7 @@ import GetHelp from 'components/Button/GetHelp'
 import { ColumnCenter } from 'components/Column'
 import Modal from 'components/Modal'
 import Row from 'components/Row'
+import forkConfig from 'fork-config'
 import { ReactNode } from 'react'
 import styled, { DefaultTheme } from 'styled-components'
 import { Gap } from 'theme'
@@ -150,7 +151,7 @@ export function Dialog(props: DialogProps) {
     <Modal $scrollOverlay isOpen={props.isVisible} onDismiss={props.onCancel}>
       <Container gap="lg">
         <Row gap="10px" width="100%" padding="4px 0px" justify="end" align="center">
-          <GetHelp />
+          {forkConfig.support && <GetHelp />}
           <CloseIcon data-testid="Dialog-closeButton" onClick={props.onCancel} />
         </Row>
         <DialogContent {...props} />

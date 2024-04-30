@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { ClickableStyle, ThemedText } from 'theme/components'
 import { FadePresence } from 'theme/components/FadePresence'
 
+import forkConfig from 'fork-config'
 import GetHelpButton from '../Button/GetHelp'
 
 const CloseIcon = styled(X)<{ onClick: () => void }>`
@@ -23,7 +24,7 @@ export function SwapHead({ onDismiss, isLimitTrade }: { onDismiss: () => void; i
         </FadePresence>
       </Row>
       <Row justify="right" gap="10px">
-        <GetHelpButton />
+        {forkConfig.support && <GetHelpButton />}
         <CloseIcon onClick={onDismiss} data-testid="confirmation-close-icon" />
       </Row>
     </Row>

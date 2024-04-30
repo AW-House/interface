@@ -10,6 +10,7 @@ import Modal from 'components/Modal'
 import Row from 'components/Row'
 import { UniTagProfilePicture } from 'components/UniTag/UniTagProfilePicture'
 import { Unicon } from 'components/Unicon'
+import forkConfig from 'fork-config'
 import { useStablecoinValue } from 'hooks/useStablecoinPrice'
 import { Trans } from 'i18n'
 import { ReactNode } from 'react'
@@ -111,7 +112,7 @@ export function SendReviewModal({ onConfirm, onDismiss }: { onConfirm: () => voi
             </ThemedText.SubHeader>
           </Row>
           <Row justify="right" gap="10px">
-            <GetHelp />
+            {forkConfig.support && <GetHelp />}
             <StyledReviewCloseIcon onClick={onDismiss} />
           </Row>
         </Row>

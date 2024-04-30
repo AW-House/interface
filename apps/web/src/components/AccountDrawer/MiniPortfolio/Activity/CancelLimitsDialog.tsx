@@ -9,6 +9,7 @@ import Modal from 'components/Modal'
 import Row from 'components/Row'
 import { DetailLineItem } from 'components/swap/DetailLineItem'
 import { nativeOnChain } from 'constants/tokens'
+import forkConfig from 'fork-config'
 import { useStablecoinValue } from 'hooks/useStablecoinPrice'
 import { Plural, Trans, t } from 'i18n'
 import { Slash } from 'react-feather'
@@ -101,7 +102,7 @@ export function CancelLimitsDialog(
       <Modal isOpen $scrollOverlay onDismiss={onCancel} maxHeight={90}>
         <Container gap="lg">
           <Row gap="10px" width="100%" padding="4px 0px" justify="end" align="center">
-            <GetHelp />
+            {forkConfig.support && <GetHelp />}
             <CloseIcon onClick={onCancel} />
           </Row>
           <LogoContainer>{icon}</LogoContainer>
