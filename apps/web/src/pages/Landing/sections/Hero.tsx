@@ -162,34 +162,36 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
           </Text>
         </RiseIn>
       </Center>
-      <LearnMoreContainer
-        position="absolute"
-        width="100%"
-        align="center"
-        justify="center"
-        pointerEvents="none"
-        style={{ transform: `translate(0px, ${translateY}px)`, opacity: opacityY }}
-      >
-        <RiseIn delay={0.3}>
-          <Box
-            direction="column"
-            align="center"
-            justify="flex-start"
-            onClick={() => scrollToRef()}
-            style={{ cursor: 'pointer' }}
-            width="500px"
-          >
-            <Hover>
-              <ColumnCenter>
-                <Text variant="body2">
-                  <Trans>Scroll to learn more</Trans>
-                </Text>
-                <ChevronDown />
-              </ColumnCenter>
-            </Hover>
-          </Box>
-        </RiseIn>
-      </LearnMoreContainer>
+      {!forkConfig.landingPage.swapOnly && (
+        <LearnMoreContainer
+          position="absolute"
+          width="100%"
+          align="center"
+          justify="center"
+          pointerEvents="none"
+          style={{ transform: `translate(0px, ${translateY}px)`, opacity: opacityY }}
+        >
+          <RiseIn delay={0.3}>
+            <Box
+              direction="column"
+              align="center"
+              justify="flex-start"
+              onClick={() => scrollToRef()}
+              style={{ cursor: 'pointer' }}
+              width="500px"
+            >
+              <Hover>
+                <ColumnCenter>
+                  <Text variant="body2">
+                    <Trans>Scroll to learn more</Trans>
+                  </Text>
+                  <ChevronDown />
+                </ColumnCenter>
+              </Hover>
+            </Box>
+          </RiseIn>
+        </LearnMoreContainer>
+      )}
     </Container>
   )
 }

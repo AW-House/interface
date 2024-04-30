@@ -20,21 +20,32 @@
       http-equiv="Content-Security-Policy" 
       content="default-src <%= cspConfig.defaultSrc.join(' ') %>; script-src <%= cspConfig.scriptSrc.join(' ') %>; style-src <%= cspConfig.styleSrc.join(' ') %>; img-src <%= cspConfig.imgSrc.join(' ') %>; frame-src <%= cspConfig.frameSrc.join(' ') %>; connect-src <%= cspConfig.connectSrc.join(' ') %>; worker-src <%= cspConfig.workerSrc.join(' ') %>;"
     >
+
+    <meta property="og:title" content="Swap on Redstone">
+    <meta property="og:description" content="Swap or provide liquidity on the Swap on Redstone Network">
+    <meta property="og:image" content="https://redswap.io/images/1200x630_Rich_Link_Preview_Image.png">
+    <meta property="og:url" content="https://redswap.io">
+    <meta property="og:type" content="website">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Swap on Redstone">
+    <meta name="twitter:description" content="Swap or provide liquidity on the Swap on Redstone Network">
+    <meta name="twitter:image" content="https://redswap.io/images/1200x630_Rich_Link_Preview_Image.png">
     
     <!-- 
       Apple Smart App Banner for Safari on iOS
       https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners
      -->
-    <meta name="apple-itunes-app" content="app-id=6443944476">
+    <!-- <meta name="apple-itunes-app" content="app-id=6443944476"> -->
 
     <!--
       manifest.json provides metadata used when the app is installed as a PWA.
       See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
 
-    <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
-    <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/>
+    <!-- <link rel="preconnect" href="https://interface.gateway.uniswap.org/" crossorigin/>
+    <link rel="preconnect" href="https://mainnet.infura.io/" crossorigin/> -->
 
     <link rel="preload" href="%PUBLIC_URL%/fonts/Basel-Grotesk-Book.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="%PUBLIC_URL%/fonts/Basel-Grotesk-Medium.woff2" as="font" type="font/woff2" crossorigin />

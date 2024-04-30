@@ -32,8 +32,8 @@ export class WalletConnectV2 extends WalletConnect {
         metadata: {
           name: 'Swap on Redstone',
           description: 'Swap on Redstone Interface',
-          url: 'https://example.com',
-          icons: ['https://example.com/favicon.png'],
+          url: 'https://redswap.io',
+          icons: ['https://redswap.io/favicon.png'],
         },
         optionalChains: [...L1_CHAIN_IDS, ...L2_CHAIN_IDS],
         showQrModal: qrcode,

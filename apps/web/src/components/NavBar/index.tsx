@@ -80,10 +80,11 @@ export const PageTabs = () => {
           <Trans>Explore</Trans>
         </MenuItem>
       ) : (
-        //TODO: update with external info link
-        <MenuItem href="https://info.example.com">
-          <Trans>Explore</Trans>
-        </MenuItem>
+        <></>
+        // TODO: update with external info link
+        // <MenuItem href="https://info.example.com">
+        //   <Trans>Explore</Trans>
+        // </MenuItem>
       )}
       {!shouldDisableNFTRoutes && (
         <MenuItem dataTestId="nft-nav" href="/nfts" isActive={isNftPage}>
@@ -95,7 +96,7 @@ export const PageTabs = () => {
           <Trans>Pool</Trans>
         </MenuItem>
       </Box>
-      <More />
+      {forkConfig.settings.socials && <More />}
     </>
   )
 }
