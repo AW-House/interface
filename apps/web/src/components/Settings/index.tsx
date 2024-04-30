@@ -20,6 +20,7 @@ import styled from 'styled-components'
 import { Divider, ThemedText } from 'theme/components'
 import { Z_INDEX } from 'theme/zIndex'
 
+import forkConfig from 'fork-config'
 import MaxSlippageSettings from './MaxSlippageSettings'
 import MenuButton from './MenuButton'
 import RouterPreferenceSettings from './RouterPreferenceSettings'
@@ -127,7 +128,7 @@ export default function SettingsTab({
   useDisableScrolling(isOpen)
 
   const uniswapXEnabled = chainId && isUniswapXSupportedChain(chainId)
-  const showRoutingSettings = Boolean(uniswapXEnabled && !hideRoutingSettings)
+  const showRoutingSettings = forkConfig.settings.showRouting ?? Boolean(uniswapXEnabled && !hideRoutingSettings)
 
   const isChainSupported = isSupportedChain(chainId)
   const Settings = useMemo(

@@ -205,6 +205,10 @@ function getClassicTradeDetails(
   }
 }
 
+export function shouldUseAPIRouter(args: GetQuoteArgs): boolean {
+  return args.routerPreference !== RouterPreference.CLIENT
+}
+
 export function transformQuickRouteToTrade(args: GetQuickQuoteArgs, data: QuickRouteResponse): PreviewTrade {
   const { amount, tradeType } = args
   const [currencyIn, currencyOut] = getTradeCurrencies(args, false)

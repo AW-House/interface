@@ -60,7 +60,8 @@ function pairKey(token0Address: string, token1Address: string) {
 export const initialState: UserState = {
   recentConnectionMeta: getRecentConnectionMeta(),
   userLocale: null,
-  userRouterPreference: RouterPreference.X,
+  // TODO: Local routing - remove once API supports redstone and mark as deprecated
+  userRouterPreference: RouterPreference.CLIENT,
   userHideClosedPositions: false,
   userSlippageTolerance: SlippageTolerance.Auto,
   userSlippageToleranceHasBeenMigratedToAuto: true,

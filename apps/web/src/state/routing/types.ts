@@ -29,6 +29,7 @@ export const INTERNAL_ROUTER_PREFERENCE_PRICE = 'price' as const
 export enum RouterPreference {
   X = 'uniswapx',
   API = 'api',
+  CLIENT = 'client',
 }
 
 // TODO(limits): add Limit market price intent

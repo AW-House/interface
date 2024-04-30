@@ -2,6 +2,7 @@ import Column from 'components/Column'
 import UniswapXBrandMark from 'components/Logo/UniswapXBrandMark'
 import { RowBetween, RowFixed } from 'components/Row'
 import Toggle from 'components/Toggle'
+import forkConfig from 'fork-config'
 import { Trans } from 'i18n'
 import { RouterPreference } from 'state/routing/types'
 import { useRouterPreference } from 'state/user/hooks'
@@ -20,7 +21,26 @@ const InlineLink = styled(ThemedText.BodySmall)`
 export default function RouterPreferenceSettings() {
   const [routerPreference, setRouterPreference] = useRouterPreference()
 
-  return (
+  return forkConfig.localRouting ? (
+    <RowBetween gap="sm">
+      <RowFixed>
+        <Column gap="xs">
+          <ThemedText.BodySecondary>
+            <Trans>Local routing</Trans>
+          </ThemedText.BodySecondary>
+        </Column>
+      </RowFixed>
+      <Toggle
+        id="toggle-local-routing-button"
+        isActive={routerPreference === RouterPreference.CLIENT}
+        toggle={() =>
+          setRouterPreference(
+            routerPreference === RouterPreference.CLIENT ? RouterPreference.API : RouterPreference.CLIENT
+          )
+        }
+      />
+    </RowBetween>
+  ) : (
     <RowBetween gap="sm">
       <RowFixed>
         <Column gap="xs">

@@ -18,7 +18,7 @@ import {
   URAQuoteResponse,
   URAQuoteType,
 } from './types'
-import { isExactInput, transformQuoteToTrade } from './utils'
+import { isExactInput, shouldUseAPIRouter, transformQuoteToTrade } from './utils'
 
 const UNISWAP_GATEWAY_DNS_URL = process.env.REACT_APP_UNISWAP_GATEWAY_DNS
 if (UNISWAP_GATEWAY_DNS_URL === undefined) {
@@ -100,50 +100,52 @@ export const routingApi = createApi({
             configs: getRoutingAPIConfig(args),
           }
 
-          try {
-            return trace.child({ name: 'Quote on server', op: 'quote.server' }, async () => {
-              const response = await fetch({
-                method: 'POST',
-                url: `${UNISWAP_GATEWAY_DNS_URL}/quote`,
-                body: JSON.stringify(requestBody),
-                headers: {
-                  // 'x-request-source': 'uniswap-web',
-                },
-              })
+          if (shouldUseAPIRouter(args)) {
+            try {
+              return trace.child({ name: 'Quote on server', op: 'quote.server' }, async () => {
+                const response = await fetch({
+                  method: 'POST',
+                  url: `${UNISWAP_GATEWAY_DNS_URL}/quote`,
+                  body: JSON.stringify(requestBody),
+                  headers: {
+                    // 'x-request-source': 'uniswap-web',
+                  },
+                })
 
-              if (response.error) {
-                try {
-                  // cast as any here because we do a runtime check on it being an object before indexing into .errorCode
-                  const errorData = response.error.data as { errorCode?: string; detail?: string }
-                  // NO_ROUTE should be treated as a valid response to prevent retries.
-                  if (
-                    typeof errorData === 'object' &&
-                    (errorData?.errorCode === 'NO_ROUTE' || errorData?.detail === 'No quotes available')
-                  ) {
-                    sendAnalyticsEvent('No quote received from routing API', {
-                      requestBody,
-                      response,
-                      routerPreference: args.routerPreference,
-                    })
-                    return {
-                      data: { state: QuoteState.NOT_FOUND, latencyMs: trace.now() },
+                if (response.error) {
+                  try {
+                    // cast as any here because we do a runtime check on it being an object before indexing into .errorCode
+                    const errorData = response.error.data as { errorCode?: string; detail?: string }
+                    // NO_ROUTE should be treated as a valid response to prevent retries.
+                    if (
+                      typeof errorData === 'object' &&
+                      (errorData?.errorCode === 'NO_ROUTE' || errorData?.detail === 'No quotes available')
+                    ) {
+                      sendAnalyticsEvent('No quote received from routing API', {
+                        requestBody,
+                        response,
+                        routerPreference: args.routerPreference,
+                      })
+                      return {
+                        data: { state: QuoteState.NOT_FOUND, latencyMs: trace.now() },
+                      }
                     }
+                  } catch {
+                    throw response.error
                   }
-                } catch {
-                  throw response.error
                 }
-              }
 
-              const uraQuoteResponse = response.data as URAQuoteResponse
-              const tradeResult = await transformQuoteToTrade(args, uraQuoteResponse, QuoteMethod.ROUTING_API)
-              return { data: { ...tradeResult, latencyMs: trace.now() } }
-            })
-          } catch (error: any) {
-            console.warn(
-              `GetQuote failed on Unified Routing API, falling back to client: ${
-                error?.message ?? error?.detail ?? error
-              }`
-            )
+                const uraQuoteResponse = response.data as URAQuoteResponse
+                const tradeResult = await transformQuoteToTrade(args, uraQuoteResponse, QuoteMethod.ROUTING_API)
+                return { data: { ...tradeResult, latencyMs: trace.now() } }
+              })
+            } catch (error: any) {
+              console.warn(
+                `GetQuote failed on Unified Routing API, falling back to client: ${
+                  error?.message ?? error?.detail ?? error
+                }`
+              )
+            }
           }
 
           try {

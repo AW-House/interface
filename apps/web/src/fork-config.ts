@@ -1,10 +1,12 @@
 const forkConfig = {
+  localRouting: true,
   graphqlAPISupported: false,
   settings: {
     multipleLanguages: false,
     privacyPolicyPending: true,
     socials: false,
     currencyConversion: false,
+    showRouting: true,
   },
   landingPage: {
     swapOnly: true,
