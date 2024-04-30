@@ -64,7 +64,9 @@
     "https://graph.stg.swap-redstone.w3us.site",
     "https://rpc.garnet.qry.live",
     "https://rpc.redstonechain.com/",
-    "https://api.stg.swap-redstone.w3us.site"
+    "https://api.stg.swap-redstone.w3us.site",
+    "https://graph.stg.redswap.io/",
+    "https://graph.redswap.io/"
   ],
   "workerSrc": [
     "'self'",
