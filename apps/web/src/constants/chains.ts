@@ -16,7 +16,7 @@ export const CHAIN_IDS_TO_NAMES = {
   [ChainId.AVALANCHE]: 'avalanche',
   [ChainId.BASE]: 'base',
   [ChainId.BLAST]: 'blast',
-  [ChainId.REDSTONE_GARNET]: 'redstone_garnet',
+  [ChainId.REDSTONE_GARNET]: 'garnet_holesky',
   [ChainId.REDSTONE]: 'redstone',
 } as const
 
