@@ -10,6 +10,7 @@ import 'connection/eagerlyConnect'
 import { ApolloProvider } from '@apollo/client'
 import { useWeb3React } from '@web3-react/core'
 import { getDeviceId } from 'analytics'
+import forkConfig from 'fork-config'
 import { AssetActivityProvider } from 'graphql/data/apollo/AssetActivityProvider'
 import { TokenBalancesProvider } from 'graphql/data/apollo/TokenBalancesProvider'
 import { apolloClient } from 'graphql/data/apollo/client'
@@ -82,21 +83,25 @@ function StatsigProvider({ children }: PropsWithChildren) {
     }),
     [account]
   )
-  return (
-    <BaseStatsigProvider
-      user={statsigUser}
-      sdkKey={STATSIG_DUMMY_KEY}
-      waitForInitialization={false}
-      options={{
-        environment: { tier: getEnvName() },
-        api: process.env.REACT_APP_STATSIG_PROXY_URL,
-        disableAutoMetricsLogging: true,
-        disableErrorLogging: true,
-      }}
-    >
-      {children}
-    </BaseStatsigProvider>
-  )
+  if (forkConfig.analytics.allowAnalytics) {
+    return (
+      <BaseStatsigProvider
+        user={statsigUser}
+        sdkKey={STATSIG_DUMMY_KEY}
+        waitForInitialization={false}
+        options={{
+          environment: { tier: getEnvName() },
+          api: process.env.REACT_APP_STATSIG_PROXY_URL,
+          disableAutoMetricsLogging: true,
+          disableErrorLogging: true,
+        }}
+      >
+        {children}
+      </BaseStatsigProvider>
+    )
+  } else {
+    return <>{children}</>
+  }
 }
 
 const queryClient = new QueryClient()
