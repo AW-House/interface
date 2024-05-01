@@ -154,14 +154,7 @@ const Navbar = ({ blur }: { blur: boolean }) => {
               display: 'flex',
             })}
           >
-            {forkConfig.navbar.showSearchBar ? (
-              <SearchBar />
-            ) : (
-              <>
-                Redswap is a fork based on Uniswap V3 protocol and is still in development. It should not be used by
-                external users until released.
-              </>
-            )}
+            {forkConfig.navbar.showSearchBar ? <SearchBar /> : <></>}
           </Box>
           <Box className={styles.rightSideContainer}>
             <Row gap="12">

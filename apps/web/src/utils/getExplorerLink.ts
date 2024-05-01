@@ -17,7 +17,7 @@ const BLOCK_EXPLORER_PREFIXES: { [chainId: number]: string } = {
   [ChainId.BASE]: 'https://basescan.org',
   [ChainId.BLAST]: 'https://blastscan.io',
   [ChainId.REDSTONE_GARNET]: 'https://garnet.blockscout.com',
-  [ChainId.REDSTONE]: 'https://redstone.blockscout.com',
+  [ChainId.REDSTONE]: 'https://explorer.redstone.xyz',
 }
 
 export enum ExplorerDataType {

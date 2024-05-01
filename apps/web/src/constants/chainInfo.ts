@@ -277,7 +277,7 @@ const CHAIN_INFO: ChainInfoMap = {
     bridge: 'https://redstone.xyz/deposit',
     defaultListUrl: REDSTONE_LIST,
     docs: 'https://redstone.xyz/docs/',
-    explorer: 'https://redstone.blockscout.com/',
+    explorer: 'https://explorer.redstone.xyz/',
     infoLink: 'https://redstone.xyz/docs/',
     label: 'Redstone',
     nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
