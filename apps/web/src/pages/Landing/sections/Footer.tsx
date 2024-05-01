@@ -82,7 +82,7 @@ export function Socials({ iconSize }: { iconSize?: string }) {
         </StyledExternalLink>
       </SocialIcon>
       <SocialIcon $hoverColor="#F34242">
-        <StyledExternalLink href="https://discord.gg/cgpHRS55Kf">
+        <StyledExternalLink href="https://discord.gg/PUqhjfwM7B">
           <Discord size={iconSize} fill="inherit" />
         </StyledExternalLink>
       </SocialIcon>
