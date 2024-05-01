@@ -5,7 +5,7 @@ const forkConfig = {
   settings: {
     multipleLanguages: false,
     privacyPolicyPending: true,
-    socials: false,
+    socials: true,
     currencyConversion: false,
     showRouting: true,
   },

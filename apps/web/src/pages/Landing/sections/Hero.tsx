@@ -158,7 +158,7 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
               variant: 'body2',
             }}
           >
-            <Trans>Swap on Redstone is a fork based on Uniswap V3 Protocol</Trans>
+            <Trans>Redswap is a fork based on Uniswap V3 Protocol</Trans>
           </Text>
         </RiseIn>
       </Center>

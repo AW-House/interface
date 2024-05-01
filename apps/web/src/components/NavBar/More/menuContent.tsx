@@ -18,7 +18,7 @@ export const useMenuContent = (): MenuSection[] => {
   const { t } = useTranslation()
   return [
     {
-      title: t('App'),
+      title: t(''),
       items: [
         { label: t('Pool'), href: '/pool', internal: true, overflow: true },
         // { label: t('Vote'), href: 'https://vote.uniswapfoundation.org/' },

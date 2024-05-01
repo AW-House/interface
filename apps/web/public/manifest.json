@@ -21,8 +21,8 @@
     }
   ],
   "orientation": "portrait",
-  "name": "Swap on Redstone",
-  "description": "Swap or provide liquidity on the Swap on Redstone Network",
+  "name": "Redstone",
+  "description": "Swap or provide liquidity on the Redstone Network",
   "iconPath": "./images/256x256_App_Icon_Pink.svg",
   "short_name": "Swap",
   "start_url": ".",

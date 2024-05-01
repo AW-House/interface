@@ -186,7 +186,7 @@ const [web3CoinbaseWallet, web3CoinbaseWalletHooks] = initializeConnector<Coinba
       actions,
       options: {
         url: APP_RPC_URLS[ChainId.MAINNET][0],
-        appName: 'Swap on Redstone',
+        appName: 'Redswap',
         appLogoUrl: UNISWAP_LOGO,
         reloadOnDisconnect: false,
       },

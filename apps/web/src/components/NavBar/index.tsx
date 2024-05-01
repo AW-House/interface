@@ -158,8 +158,8 @@ const Navbar = ({ blur }: { blur: boolean }) => {
               <SearchBar />
             ) : (
               <>
-                Swap on Redstone Network is a fork based Uniswap V3 and is still in development. It should not be used
-                by external users until released.
+                Redswap is a fork based on Uniswap V3 protocol and is still in development. It should not be used by
+                external users until released.
               </>
             )}
           </Box>

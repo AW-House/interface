@@ -81,7 +81,7 @@ export interface RouteDefinition {
 function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition {
   return {
     getElement: () => null,
-    getTitle: () => 'Swap on Redstone Interface',
+    getTitle: () => 'Redswap Interface',
     enabled: () => true,
     path: '/',
     nestedPaths: [],
@@ -90,12 +90,12 @@ function createRouteDefinition(route: Partial<RouteDefinition>): RouteDefinition
   }
 }
 
-const SwapTitle = t`Buy, sell & trade Ethereum and other top tokens on Swap on Redstone`
+const SwapTitle = t`Buy, sell & trade Ethereum and other top tokens on Redstone`
 
 export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/',
-    getTitle: () => t`Swap on Redstone | Trade crypto & NFTs safely on the Swap Protocol on Redstone Network`,
+    getTitle: () => t`Redswap | Trade crypto & NFTs safely on the Swap Protocol on Redstone Network`,
     getElement: (args) => {
       return args.browserRouterEnabled && args.hash ? <Navigate to={args.hash.replace('#', '')} replace /> : <Landing />
     },
@@ -108,7 +108,7 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/explore/tokens/:chainName/:tokenAddress',
-    getTitle: () => t`Buy & sell on Swap on Redstone`,
+    getTitle: () => t`Buy & sell on Redswap`,
     getElement: () => <TokenDetails />,
   }),
   createRouteDefinition({
@@ -128,7 +128,7 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/explore/pools/:chainName/:poolAddress',
-    getTitle: () => t`Explore pools on Swap on Redstone`,
+    getTitle: () => t`Explore pools on Redswap`,
     getElement: () => (
       <Suspense fallback={null}>
         <PoolDetails />
@@ -137,7 +137,7 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/vote/*',
-    getTitle: () => t`Vote on governance proposals on Swap on Redstone`,
+    getTitle: () => t`Vote on governance proposals on Redswap`,
     getElement: () => (
       <Suspense fallback={<LazyLoadSpinner />}>
         <Vote />
@@ -152,7 +152,7 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/send',
     getElement: () => <Swap />,
-    getTitle: () => t`Send tokens on Swap on Redstone`,
+    getTitle: () => t`Send tokens on Redswap`,
   }),
   createRouteDefinition({
     path: '/limits',
@@ -171,48 +171,48 @@ export const routes: RouteDefinition[] = [
   createRouteDefinition({
     path: '/pool/v2/find',
     getElement: () => <PoolFinder />,
-    getTitle: () => t`Explore top liquidity pools (v2) on Swap`,
+    getTitle: () => t`Explore top liquidity pools (v2) on Redswap`,
   }),
   createRouteDefinition({
     path: '/pool/v2',
     getElement: () => <PoolV2 />,
-    getTitle: () => t`Provide liquidity to pools (v2) on Swap`,
+    getTitle: () => t`Provide liquidity to pools (v2) on Redswap`,
   }),
   createRouteDefinition({
     path: '/pool',
     getElement: () => <Pool />,
-    getTitle: () => t`Manage & provide pool liquidity on Swap`,
+    getTitle: () => t`Manage & provide pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/pool/:tokenId',
     getElement: () => <PositionPage />,
-    getTitle: () => t`Manage pool liquidity on Swap`,
+    getTitle: () => t`Manage pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/pools/v2/find',
     getElement: () => <PoolFinder />,
-    getTitle: () => t`Explore top liquidity pools (v2) on Swap`,
+    getTitle: () => t`Explore top liquidity pools (v2) on Redswap`,
   }),
   createRouteDefinition({
     path: '/pools/v2',
     getElement: () => <PoolV2 />,
-    getTitle: () => t`Manage & provide v2 pool liquidity on Swap`,
+    getTitle: () => t`Manage & provide v2 pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/pools',
     getElement: () => <Pool />,
-    getTitle: () => t`Manage & provide pool liquidity on Swap`,
+    getTitle: () => t`Manage & provide pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/pools/:tokenId',
     getElement: () => <PositionPage />,
-    getTitle: () => t`Manage pool liquidity on Swap`,
+    getTitle: () => t`Manage pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/add/v2',
     nestedPaths: [':currencyIdA', ':currencyIdA/:currencyIdB'],
     getElement: () => <AddLiquidityV2WithTokenRedirects />,
-    getTitle: () => t`Provide liquidity to pools (v2) on Swap`,
+    getTitle: () => t`Provide liquidity to pools (v2) on Redswap`,
   }),
   createRouteDefinition({
     path: '/add',
@@ -223,27 +223,27 @@ export const routes: RouteDefinition[] = [
       ':currencyIdA/:currencyIdB/:feeAmount/:tokenId',
     ],
     getElement: () => <AddLiquidityWithTokenRedirects />,
-    getTitle: () => t`Provide liquidity to pools on Swap`,
+    getTitle: () => t`Provide liquidity to pools on Redswap`,
   }),
   createRouteDefinition({
     path: '/remove/v2/:currencyIdA/:currencyIdB',
     getElement: () => <RemoveLiquidity />,
-    getTitle: () => t`Manage v2 pool liquidity on Swap`,
+    getTitle: () => t`Manage v2 pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/remove/:tokenId',
     getElement: () => <RemoveLiquidityV3 />,
-    getTitle: () => t`Manage pool liquidity on Swap`,
+    getTitle: () => t`Manage pool liquidity on Redswap`,
   }),
   createRouteDefinition({
     path: '/migrate/v2',
     getElement: () => <MigrateV2 />,
-    getTitle: () => t`Migrate v2 pool liquidity to Swap v3`,
+    getTitle: () => t`Migrate v2 pool liquidity to v3`,
   }),
   createRouteDefinition({
     path: '/migrate/v2/:address',
     getElement: () => <MigrateV2Pair />,
-    getTitle: () => t`Migrate v2 pool liquidity to Swap v3`,
+    getTitle: () => t`Migrate v2 pool liquidity to v3`,
   }),
   createRouteDefinition({
     path: '/nfts',
@@ -263,7 +263,7 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
     enabled: (args) => !args.shouldDisableNFTRoutes,
-    getTitle: () => t`Explore NFTs on Swap`,
+    getTitle: () => t`Explore NFTs on Redswap`,
   }),
   createRouteDefinition({
     path: '/nfts/profile',
@@ -273,7 +273,7 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
     enabled: (args) => !args.shouldDisableNFTRoutes,
-    getTitle: () => t`Explore NFTs on Swap on Redstone`,
+    getTitle: () => t`Explore NFTs on Redswap`,
   }),
   createRouteDefinition({
     path: '/nfts/collection/:contractAddress',
@@ -283,7 +283,7 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
     enabled: (args) => !args.shouldDisableNFTRoutes,
-    getTitle: () => t`Explore NFTs on Swap`,
+    getTitle: () => t`Explore NFTs on Redswap`,
   }),
   createRouteDefinition({
     path: '/nfts/collection/:contractAddress/activity',
@@ -293,7 +293,7 @@ export const routes: RouteDefinition[] = [
       </Suspense>
     ),
     enabled: (args) => !args.shouldDisableNFTRoutes,
-    getTitle: () => t`Explore NFTs on Swap`,
+    getTitle: () => t`Explore NFTs on Redswap`,
   }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
   createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),

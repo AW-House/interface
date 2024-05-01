@@ -71,18 +71,18 @@ const ModalItem = styled.div`
 export function Socials({ iconSize }: { iconSize?: string }) {
   return (
     <Box gap="24px">
-      <SocialIcon $hoverColor="#00C32B">
-        <StyledExternalLink href="https://github.com/Uniswap">
+      <SocialIcon $hoverColor="#F34242">
+        <StyledExternalLink href="https://github.com/AW-House">
           <Github size={iconSize} fill="inherit" />
         </StyledExternalLink>
       </SocialIcon>
-      <SocialIcon $hoverColor="#20BAFF">
-        <StyledExternalLink href="https://twitter.com/Uniswap">
+      <SocialIcon $hoverColor="#F34242">
+        <StyledExternalLink href="https://x.com/0xredswap">
           <Twitter size={iconSize} fill="inherit" />
         </StyledExternalLink>
       </SocialIcon>
-      <SocialIcon $hoverColor="#5F51FF">
-        <StyledExternalLink href="https://discord.com/invite/uniswap">
+      <SocialIcon $hoverColor="#F34242">
+        <StyledExternalLink href="https://discord.gg/cgpHRS55Kf">
           <Discord size={iconSize} fill="inherit" />
         </StyledExternalLink>
       </SocialIcon>
@@ -101,7 +101,7 @@ export function Footer() {
           <Box direction="column" height="100%" gap="64px">
             <Box direction="column" gap="10px">
               <H3>© 2024</H3>
-              <H3>Uniswap Labs</H3>
+              <H3>Redswap</H3>
             </Box>
             <HideWhenSmall>
               <Socials />
@@ -128,10 +128,10 @@ export function Footer() {
                 <Body1>
                   <Trans>Protocol</Trans>
                 </Body1>
-                <StyledExternalLink href="https://uniswap.org/governance">
+                <StyledExternalLink href="">
                   <Trans>Governance</Trans>
                 </StyledExternalLink>
-                <StyledExternalLink href="https://uniswap.org/developers">
+                <StyledExternalLink href="">
                   <Trans>Developers</Trans>
                 </StyledExternalLink>
               </Box>
@@ -141,13 +141,13 @@ export function Footer() {
                 <Body1>
                   <Trans>Company</Trans>
                 </Body1>
-                <StyledExternalLink href="https://boards.greenhouse.io/uniswaplabs">
+                <StyledExternalLink href="">
                   <Trans>Careers</Trans>
                 </StyledExternalLink>
-                <StyledExternalLink href="https://blog.uniswap.org/">
+                <StyledExternalLink href="">
                   <Trans>Blog</Trans>
                 </StyledExternalLink>
-                <DownloadLink href="https://github.com/Uniswap/brand-assets/raw/main/Uniswap%20Brand%20Assets.zip">
+                <DownloadLink href="">
                   <Trans>Brand Assets</Trans>
                 </DownloadLink>
                 <ModalItem onClick={togglePrivacyPolicy}>
@@ -161,10 +161,10 @@ export function Footer() {
                 <Body1>
                   <Trans>Need help?</Trans>
                 </Body1>
-                <StyledExternalLink href="https://support.uniswap.org/hc/en-us/requests/new">
+                <StyledExternalLink href="">
                   <Trans>Contact us</Trans>
                 </StyledExternalLink>
-                <StyledExternalLink href="https://support.uniswap.org/hc/en-us">
+                <StyledExternalLink href="">
                   <Trans>Help Center</Trans>
                 </StyledExternalLink>
               </Box>

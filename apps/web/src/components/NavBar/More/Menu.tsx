@@ -16,7 +16,8 @@ import { MobileAppLogo } from './MobileAppLogo'
 import { MenuItem, MenuSection, useMenuContent } from './menuContent'
 
 const Container = styled.div`
-  width: 295px;
+  // TODO: when forkConfid allows external analytics, change width
+  width: 240px;
   max-height: 85vh;
   padding: 24px;
   margin-top: 12px;
@@ -113,7 +114,7 @@ export function Menu({ close }: { close: () => void }) {
             closeMenu={close}
           />
         ))}
-        <Separator />
+        {menuContent.length > 1 && <Separator />}
         {forkConfig.uniWalletSupported && (
           <StyledRow
             height="45px"
@@ -134,7 +135,7 @@ export function Menu({ close }: { close: () => void }) {
             </Column>
           </StyledRow>
         )}
-        <Text lineHeight="20px">Swap on Redstone is a fork based on Uniswap V3 Protocol</Text>
+        <Text lineHeight="20px">Redswap is a fork based on Uniswap V3 Protocol</Text>
         {forkConfig.settings.socials && <StyledSocials iconSize="25px" />}
       </Column>
     </Container>

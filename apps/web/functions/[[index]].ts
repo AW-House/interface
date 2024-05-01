@@ -16,10 +16,10 @@ export const onRequest: PagesFunction = async ({ request, next }) => {
   const requestURL = new URL(request.url)
   const imageUri = requestURL.origin + '/images/1200x630_Rich_Link_Preview_Image.png'
   const data = {
-    title: 'Swap on Redstone Interface',
+    title: 'Redswap Interface',
     image: imageUri,
     url: request.url,
-    description: 'Swap or provide liquidity on the Swap Protocol',
+    description: 'Swap or provide liquidity on the Redstone Network',
   }
   const res = next()
   if (doesMatchPath(requestURL.pathname)) {

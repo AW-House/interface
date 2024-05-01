@@ -30,8 +30,8 @@ export class WalletConnectV2 extends WalletConnect {
         projectId: process.env.REACT_APP_WALLET_CONNECT_PROJECT_ID as string,
         chains: [defaultChainId],
         metadata: {
-          name: 'Swap on Redstone',
-          description: 'Swap on Redstone Interface',
+          name: 'Redswap',
+          description: 'Redswap Interface',
           url: 'https://redswap.io',
           icons: ['https://redswap.io/favicon.png'],
         },

@@ -3,7 +3,8 @@ import {
   Trace as AnalyticsTrace,
   sendAnalyticsEvent as sendAnalyticsTraceEvent,
 } from '@uniswap/analytics'
-import { atomWithStorage, useAtomValue } from 'jotai/utils'
+import forkConfig from 'fork-config'
+import { atomWithStorage } from 'jotai/utils'
 import { memo } from 'react'
 
 export {
@@ -19,19 +20,25 @@ const allowAnalyticsAtomKey = 'allow_analytics'
 export const allowAnalyticsAtom = atomWithStorage<boolean>(allowAnalyticsAtomKey, false)
 
 export const Trace = memo((props: React.ComponentProps<typeof AnalyticsTrace>) => {
-  const allowAnalytics = useAtomValue(allowAnalyticsAtom)
-  const shouldLogImpression = allowAnalytics ? props.shouldLogImpression : false
+  if (forkConfig.analytics.allowAnalytics) {
+    const allowAnalytics = /*useAtomValue(allowAnalyticsAtom)*/ false
+    const shouldLogImpression = allowAnalytics ? props.shouldLogImpression : false
 
-  return <AnalyticsTrace {...props} shouldLogImpression={shouldLogImpression} />
+    return <AnalyticsTrace {...props} shouldLogImpression={shouldLogImpression} />
+  }
+  return <>{props.children}</>
 })
 
 Trace.displayName = 'Trace'
 
 export const TraceEvent = memo((props: React.ComponentProps<typeof AnalyticsEvent>) => {
-  const allowAnalytics = useAtomValue(allowAnalyticsAtom)
-  const shouldLogImpression = allowAnalytics ? props.shouldLogImpression : false
-
-  return <AnalyticsEvent {...props} shouldLogImpression={shouldLogImpression} />
+  if (forkConfig.analytics.allowAnalytics) {
+    const allowAnalytics = /*useAtomValue(allowAnalyticsAtom)*/ false
+    const shouldLogImpression =
+      allowAnalytics && forkConfig.analytics.allowAnalytics ? props.shouldLogImpression : false
+    return <AnalyticsEvent {...props} shouldLogImpression={shouldLogImpression} />
+  }
+  return <>{props.children}</>
 })
 
 TraceEvent.displayName = 'TraceEvent'
@@ -48,7 +55,7 @@ export const sendAnalyticsEvent: typeof sendAnalyticsTraceEvent = (event, proper
     // eslint-disable-next-line no-empty
   } catch {}
 
-  if (allowAnalytics) {
+  if (allowAnalytics && forkConfig.analytics.allowAnalytics) {
     sendAnalyticsTraceEvent(event, properties)
   }
 }
