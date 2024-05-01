@@ -2,6 +2,7 @@ const forkConfig = {
   localRouting: true,
   graphqlAPISupported: false,
   support: false, //pending URL
+  CTA: false,
   settings: {
     multipleLanguages: false,
     privacyPolicyPending: true,

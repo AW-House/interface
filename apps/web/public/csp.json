@@ -66,7 +66,9 @@
     "https://rpc.redstonechain.com/",
     "https://api.stg.swap-redstone.w3us.site",
     "https://graph.stg.redswap.io/",
-    "https://graph.redswap.io/"
+    "https://graph.redswap.io/",
+    "https://api.redswap.io/quote",
+    "https://api.stg.redswap.io/quote"
   ],
   "workerSrc": [
     "'self'",

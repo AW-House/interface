@@ -1,6 +1,7 @@
 import { useWeb3React } from '@web3-react/core'
 import { AutoColumn } from 'components/Column'
 import { getChainInfoOrDefault } from 'constants/chainInfo'
+import forkConfig from 'fork-config'
 import { Trans } from 'i18n'
 import styled from 'styled-components'
 import { ExternalLink, ThemedText } from 'theme/components'
@@ -64,7 +65,9 @@ export default function CTACards() {
   const { chainId } = useWeb3React()
   const { infoLink } = getChainInfoOrDefault(chainId)
 
-  return (
+  return !forkConfig.CTA ? (
+    <></>
+  ) : (
     <CTASection>
       <CTA href="https://support.uniswap.org/hc/en-us/categories/8122334631437-Providing-Liquidity-">
         <ResponsiveColumn>
