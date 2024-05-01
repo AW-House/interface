@@ -60,32 +60,26 @@ export function FOTTooltipContent() {
   return (
     <>
       <Trans>
-        Some tokens take a fee when they are bought or sold, which is set by the token issuer. Uniswap does not receive
-        any of these fees.
+        Some tokens take a fee when they are bought or sold, which is set by the token issuer. Swap does not receive any
+        of these fees.
       </Trans>{' '}
-      <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/18673568523789-What-is-a-token-fee-">
-        Learn more
-      </ExternalLink>
+      <ExternalLink href="">Learn more</ExternalLink>
     </>
   )
 }
 
 function SwapFeeTooltipContent({ hasFee }: { hasFee: boolean }) {
   const message = hasFee ? (
-    <Trans>
-      Fees are applied to ensure the best experience with Uniswap, and have already been factored into this quote.
-    </Trans>
+    <Trans>Fees are applied to ensure the best experience, and have already been factored into this quote.</Trans>
   ) : (
-    <Trans>
-      Fees are applied to ensure the best experience with Uniswap. There is no fee associated with this swap.
-    </Trans>
+    <Trans>Fees are applied to ensure the best experience. There is no fee associated with this swap.</Trans>
   )
   return (
     <>
       {message}{' '}
-      <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/20131678274957">
+      {/* <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/20131678274957">
         <Trans>Learn more</Trans>
-      </ExternalLink>
+      </ExternalLink> */}
     </>
   )
 }
