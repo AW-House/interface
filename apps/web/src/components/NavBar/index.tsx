@@ -80,11 +80,10 @@ export const PageTabs = () => {
           <Trans>Explore</Trans>
         </MenuItem>
       ) : (
-        <></>
         // TODO: update with external info link
-        // <MenuItem href="https://info.example.com">
-        //   <Trans>Explore</Trans>
-        // </MenuItem>
+        <MenuItem href="https://info.redswap.io">
+          <Trans>Explore</Trans>
+        </MenuItem>
       )}
       {!shouldDisableNFTRoutes && (
         <MenuItem dataTestId="nft-nav" href="/nfts" isActive={isNftPage}>
