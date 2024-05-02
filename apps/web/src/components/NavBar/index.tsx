@@ -12,7 +12,7 @@ import { Row } from 'nft/components/Flex'
 import { useProfilePageState } from 'nft/hooks'
 import { ProfilePageStateType } from 'nft/types'
 import { GetTheAppButton } from 'pages/Landing/components/DownloadApp/GetTheAppButton'
-import { ReactNode, useCallback } from 'react'
+import { HTMLAttributeAnchorTarget, ReactNode, useCallback } from 'react'
 import { NavLink, NavLinkProps, useLocation, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -41,9 +41,10 @@ interface MenuItemProps {
   isActive?: boolean
   children: ReactNode
   dataTestId?: string
+  target?: HTMLAttributeAnchorTarget
 }
 
-const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) => {
+const MenuItem = ({ href, dataTestId, id, isActive, children, target }: MenuItemProps) => {
   return (
     <NavLink
       to={href}
@@ -51,6 +52,7 @@ const MenuItem = ({ href, dataTestId, id, isActive, children }: MenuItemProps) =
       id={id}
       style={{ textDecoration: 'none' }}
       data-testid={dataTestId}
+      target={target}
     >
       {children}
     </NavLink>
@@ -80,8 +82,7 @@ export const PageTabs = () => {
           <Trans>Explore</Trans>
         </MenuItem>
       ) : (
-        // TODO: update with external info link
-        <MenuItem href="https://info.redswap.io">
+        <MenuItem href="https://info.redswap.io" target="_blank">
           <Trans>Explore</Trans>
         </MenuItem>
       )}
