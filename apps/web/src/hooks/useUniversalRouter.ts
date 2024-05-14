@@ -111,7 +111,8 @@ export function useUniversalRouterSwapCallback(
             { name: 'Send transaction', op: 'wallet.send_transaction' },
             async (walletTrace) => {
               try {
-                return await provider.getSigner().sendTransaction({ ...tx, gasLimit })
+                const gasPrice = await provider.getGasPrice()
+                return await provider.getSigner().sendTransaction({ ...tx, gasLimit, gasPrice })
               } catch (error) {
                 if (didUserReject(error)) {
                   walletTrace.setStatus('cancelled')
