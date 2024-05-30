@@ -24,6 +24,7 @@ import { MICROSITE_LINK } from 'utils/openDownloadApp'
 import { getCurrentPageFromLocation } from 'utils/urlRoutes'
 import { getCLS, getFCP, getFID, getLCP, Metric } from 'web-vitals'
 
+import { useAnalyticsReporter } from 'components/analytics'
 import forkConfig from 'fork-config'
 import { findRouteByPath, RouteDefinition, routes, useRouterConfig } from './RouteDefinitions'
 
@@ -104,6 +105,9 @@ export default function App() {
   const renderUkBanner = useRenderUkBanner()
 
   const [searchParams] = useSearchParams()
+
+  useAnalyticsReporter()
+
   useEffect(() => {
     if (searchParams.get('disableNFTs') === 'true') {
       setShouldDisableNFTRoutes(true)

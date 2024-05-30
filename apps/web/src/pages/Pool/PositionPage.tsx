@@ -40,6 +40,7 @@ import { WrongChainError } from 'utils/errors'
 import { NumberType, useFormatter } from 'utils/formatNumbers'
 import { unwrappedToken } from 'utils/unwrappedToken'
 
+import { sendEvent } from 'components/analytics'
 import RangeBadge from '../../components/Badge/RangeBadge'
 import { SmallButtonPrimary } from '../../components/Button/index'
 import { getPriceOrderingFromPositionForUI } from '../../components/PositionListItem'
@@ -556,6 +557,12 @@ function PositionPageContent() {
 
             sendAnalyticsEvent(LiquidityEventName.COLLECT_LIQUIDITY_SUBMITTED, {
               source: LiquiditySource.V3,
+              label: [currency0ForFeeCollectionPurposes.symbol, currency1ForFeeCollectionPurposes.symbol].join('/'),
+            })
+
+            sendEvent({
+              category: 'Liquidity',
+              action: LiquidityEventName.COLLECT_LIQUIDITY_SUBMITTED,
               label: [currency0ForFeeCollectionPurposes.symbol, currency1ForFeeCollectionPurposes.symbol].join('/'),
             })
 
