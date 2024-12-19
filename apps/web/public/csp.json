@@ -59,6 +59,7 @@
     "https://vercel.live/",
     "https://*.quiknode.pro",
     "https://*.infura.io",
+    "https://*.w3us.site",
     "wss://relay.walletconnect.com",
     "wss://www.walletlink.org",
     "https://graph.stg.swap-redstone.w3us.site",
