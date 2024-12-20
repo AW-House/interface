@@ -31,7 +31,6 @@ import { WrongChainError } from 'utils/errors'
 import { NumberType, useFormatter } from 'utils/formatNumbers'
 
 import { OutOfSyncWarning } from 'components/addLiquidity/OutOfSyncWarning'
-import { sendEvent } from 'components/analytics'
 import { useIsPoolOutOfSync } from 'hooks/useIsPoolOutOfSync'
 import { atomWithStorage, useAtomValue, useUpdateAtom } from 'jotai/utils'
 import { BlastRebasingAlert, BlastRebasingModal } from 'pages/AddLiquidity/blastAlerts'
@@ -326,11 +325,6 @@ function AddLiquidity() {
                 label: [currencies[Field.CURRENCY_A]?.symbol, currencies[Field.CURRENCY_B]?.symbol].join('/'),
                 ...trace,
                 ...transactionInfo,
-              })
-              sendEvent({
-                category: 'Liquidity',
-                action: LiquidityEventName.ADD_LIQUIDITY_SUBMITTED,
-                label: [currencies[Field.CURRENCY_A]?.symbol, currencies[Field.CURRENCY_B]?.symbol].join('/'),
               })
             })
         })

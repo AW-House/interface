@@ -35,7 +35,6 @@ import { ThemedText } from 'theme/components'
 import { WrongChainError } from 'utils/errors'
 import { useFormatter } from 'utils/formatNumbers'
 
-import { sendEvent } from 'components/analytics'
 import { useGetTransactionDeadline } from 'hooks/useTransactionDeadline'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import { WRAPPED_NATIVE_CURRENCY } from '../../constants/tokens'
@@ -167,11 +166,6 @@ function Remove({ tokenId }: { tokenId: BigNumber }) {
               source: LiquiditySource.V3,
               label: [liquidityValue0.currency.symbol, liquidityValue1.currency.symbol].join('/'),
               ...trace,
-            })
-            sendEvent({
-              category: 'Liquidity',
-              action: LiquidityEventName.REMOVE_LIQUIDITY_SUBMITTED,
-              label: [liquidityValue0.currency.symbol, liquidityValue1.currency.symbol].join('/'),
             })
             setTxnHash(response.hash)
             setAttemptingTxn(false)
