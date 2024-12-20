@@ -126,21 +126,23 @@ export function Hero({ scrollToRef, transition }: HeroProps) {
         transition={transition}
         style={{ transform: `translate(0px, ${translateY}px)`, opacity: opacityY }}
       >
-        <Box maxWidth="920px" direction="column" align="center">
-          <StyledH1>
-            <RiseInText delay={0.0}>
-              <Trans>Swap</Trans>
-            </RiseInText>{' '}
-            <RiseInText delay={0.1}>
-              <Trans>anytime,</Trans>
-            </RiseInText>
-          </StyledH1>
-          <RiseIn delay={0.2}>
+        {forkConfig.landingPage.headline && (
+          <Box maxWidth="920px" direction="column" align="center">
             <StyledH1>
-              <Trans>anywhere.</Trans>
+              <RiseInText delay={0.0}>
+                <Trans>Swap</Trans>
+              </RiseInText>{' '}
+              <RiseInText delay={0.1}>
+                <Trans>anytime,</Trans>
+              </RiseInText>
             </StyledH1>
-          </RiseIn>
-        </Box>
+            <RiseIn delay={0.2}>
+              <StyledH1>
+                <Trans>anywhere.</Trans>
+              </StyledH1>
+            </RiseIn>
+          </Box>
+        )}
 
         <RiseIn delay={0.4}>
           <LandingSwapContainer>

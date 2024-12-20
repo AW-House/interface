@@ -13,6 +13,7 @@ const forkConfig = {
   landingPage: {
     swapOnly: true,
     tokenCloud: false,
+    headline: false,
   },
   uniWalletSupported: false,
   analytics: {
