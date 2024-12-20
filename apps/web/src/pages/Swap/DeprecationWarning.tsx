@@ -14,7 +14,7 @@ export default function DeprecationWarningBanner() {
     <StyledParagraph>
       Important notice. Redswap interface will be available until the end of 2024. Swaps on Redstone and Garnet networks
       will be available at{' '}
-      <ExternalLink href="https://swap.reservoir.tools/?chain=redstone">Reservoir App</ExternalLink>. Be sure to save
+      <ExternalLink href="https://swap.reservoir.tools/#/swap?chain=redstone">Reservoir App</ExternalLink>. Be sure to save
       the new link for future access.
     </StyledParagraph>
   )
