@@ -10,10 +10,10 @@ export type SVGProps = React.SVGProps<SVGSVGElement> & {
   gradientId?: string
   clickable?: boolean
 }
-
+const HOLIDAY_ICON_SUPPORTED = false
 export const UniIcon = ({ clickable, ...props }: SVGProps) => (
   <Container clickable={clickable}>
-    {HolidayUniIcon(props) !== null ? (
+    {HolidayUniIcon(props) !== null && HOLIDAY_ICON_SUPPORTED ? (
       <HolidayUniIcon {...props} />
     ) : (
       <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">

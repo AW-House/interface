@@ -20,6 +20,7 @@ import { SwapAndLimitContextProvider, SwapContextProvider } from 'state/swap/Swa
 import { queryParametersToCurrencyState } from 'state/swap/hooks'
 import { CurrencyState, SwapAndLimitContext } from 'state/swap/types'
 import { useIsDarkMode } from '../../theme/components/ThemeToggle'
+import DeprecationWarningBanner from './DeprecationWarning'
 import { LimitFormWrapper } from './Limit/LimitForm'
 import { SwapForm } from './SwapForm'
 
@@ -109,6 +110,7 @@ export function Swap({
           <SwapContextProvider>
             <SwapWrapper isDark={isDark} className={className} id="swap-page">
               <SwapHeader compact={compact || !screenSize.sm} syncTabToUrl={syncTabToUrl} />
+              <DeprecationWarningBanner />
               {currentTab === SwapTab.Swap && (
                 <SwapForm onCurrencyChange={onCurrencyChange} disableTokenInputs={disableTokenInputs} />
               )}
